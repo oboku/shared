@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "dist",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
@@ -8,5 +8,6 @@
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node"
-  }
+  },
+  "include": ["src"]
 }

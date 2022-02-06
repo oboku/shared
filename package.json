@@ -1,6 +1,6 @@
 {
   "name": "@oboku/shared",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "license": "MIT",
   "files": [
@@ -10,7 +10,9 @@
     "lint": "echo",
     "start": "NODE_ENV=development webpack build --watch",
     "build": "NODE_ENV=development webpack build",
+    "build-types": "yarn tsc --declaration --noEmit false --emitDeclarationOnly",
     "build:prod": "NODE_ENV=production webpack build",
+    "prepublish": "yarn build:prod & yarn build-types",
     "test": "echo"
   },
   "devDependencies": {
