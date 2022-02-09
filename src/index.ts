@@ -13,3 +13,5 @@ export const links = {
 export * as directives from "./directives";
 
 export * from "./docTypes";
+
+export * from './dataSources'
