@@ -10,7 +10,7 @@
     "lint": "echo",
     "start": "NODE_ENV=development webpack build --watch",
     "build": "NODE_ENV=development webpack build",
-    "build-types": "npm run tsc --declaration --noEmit false --emitDeclarationOnly",
+    "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
     "build:prod": "NODE_ENV=production webpack build",
     "prepublish": "npm run build:prod & npm run build-types",
     "test": "echo"
