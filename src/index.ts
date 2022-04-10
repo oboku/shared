@@ -15,3 +15,9 @@ export * as directives from "./directives";
 export * from "./docTypes";
 
 export * from './dataSources'
+
+import * as validators from './validators'
+
+export {
+  validators
+}
