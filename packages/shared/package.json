@@ -1,0 +1,25 @@
+{
+  "name": "@oboku/shared",
+  "version": "1.0.18",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "lint": "echo",
+    "start": "NODE_ENV=development webpack build --watch",
+    "build": "NODE_ENV=development webpack build && npm run build-types",
+    "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
+    "build:prod": "NODE_ENV=production webpack build",
+    "build:dev": "npm run build & npm run build-types",
+    "prepublishOnly": "npm run build & npm run build-types",
+    "test": "echo"
+  },
+  "peerDependencies": {
+    "yup": "^0.32.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@oboku/plugin-front",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "start": "concurrently -n src,types \"npm run start-src\" \"npm run start-types\"",
+    "start-src": "webpack build --config ./webpack.config.js --watch",
+    "build-src": "webpack build --config ./webpack.config.js",
+    "start-types": "tsc -w --preserveWatchOutput --declaration --noEmit false --emitDeclarationOnly",
+    "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
+    "build": "concurrently -n src,types \"npm run build-src\" \"npm run build-types\"",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@oboku/shared": "^1.0.18",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@oboku/shared": "file:../shared"
+  }
+}

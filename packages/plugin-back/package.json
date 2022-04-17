@@ -1,0 +1,33 @@
+{
+  "name": "@oboku/plugin-back",
+  "version": "0.0.5",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "start": "concurrently -n src,types \"npm run start-src\" \"npm run start-types\"",
+    "start-src": "webpack build --config ./webpack.config.js --watch",
+    "build-src": "webpack build --config ./webpack.config.js",
+    "start-types": "tsc -w --preserveWatchOutput --declaration --noEmit false --emitDeclarationOnly",
+    "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
+    "build": "npm run build-src && npm run build-types",
+    "build:prod": "NODE_ENV=development webpack build",
+    "prepublishOnly": "npm run build:prod & npm run build-types",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "@oboku/shared": "^1.0.18",
+    "@types/request": "^2.48.8",
+    "cheerio": "^1.0.0-rc.10",
+    "nano": "^10.0.0",
+    "node-fetch": "^3.2.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@oboku/shared": "file:../shared",
+    "typescript": "^4.6.3"
+  }
+}
