@@ -25,6 +25,7 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@oboku/shared": "file:../shared"
-  }
+    "@oboku/shared": "^0.0.8"
+  },
+  "gitHead": "1051bb41ec11df5fc90ea5eb411bc734897966c7"
 }
