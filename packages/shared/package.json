@@ -22,5 +22,9 @@
   "devDependencies": {
     "typescript": "^4.6.3"
   },
+  "dependencies": {
+    "@types/crypto-js": "^4.0.2",
+    "crypto-js": "^4.1.1"
+  },
   "gitHead": "1051bb41ec11df5fc90ea5eb411bc734897966c7"
 }

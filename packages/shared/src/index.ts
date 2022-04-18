@@ -52,6 +52,8 @@ export * from './dataSources'
 
 import * as validators from './validators'
 
+export * as crypto from './crypto'
+
 export { ObokuErrorCode, ObokuSharedError } from './errors'
 
 export {
