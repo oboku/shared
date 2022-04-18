@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "lerna run build"
+    "build:prod": "NODE_ENV=production npx lerna run build",
+    "build:dev": "NODE_ENV=development npx lerna run build",
+    "publish:prod": "NODE_ENV=production npx lerna publish"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.0",
