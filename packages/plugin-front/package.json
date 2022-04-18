@@ -1,6 +1,6 @@
 {
   "name": "@oboku/plugin-front",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": "dist/index.js",
   "license": "MIT",
   "files": [
@@ -25,7 +25,7 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@oboku/shared": "^0.0.12"
+    "@oboku/shared": "^0.0.13"
   },
   "gitHead": "1051bb41ec11df5fc90ea5eb411bc734897966c7"
 }
