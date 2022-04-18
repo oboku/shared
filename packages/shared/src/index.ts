@@ -49,6 +49,7 @@ export * as directives from "./directives";
 export * from "./docTypes";
 
 export * from './dataSources'
+export * from './sorting'
 
 import * as validators from './validators'
 
