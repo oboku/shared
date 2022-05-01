@@ -20,8 +20,7 @@ export const generateResourceId = (
 export const extractIdFromResourceId = (
   uniqueResourceIdentifier: string,
   resourceId: string
-) => resourceId
-  .replace(`${uniqueResourceIdentifier}-`, ``)
+) => resourceId.replace(`${uniqueResourceIdentifier}-`, ``)
 
 export const extractSyncSourceData = <Data extends Record<any, any>>({
   data
