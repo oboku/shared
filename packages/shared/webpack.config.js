@@ -1,28 +1,29 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   mode: process.env.NODE_ENV === `development` ? `development` : `production`,
-  devtool: 'source-map',
-  entry: './src/index.ts',
+  devtool: "source-map",
+  entry: "./src/index.ts",
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
     ],
   },
+  externals: [/^crypto-js\/.+$/, `crypto-js`, `yup`],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
     library: {
       // type: `umd` // careful umd does not work with nodejs
-      type: `commonjs`
+      type: `commonjs`,
     },
-    clean: true
+    clean: true,
   },
 };

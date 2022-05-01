@@ -17,14 +17,13 @@
     "test": "echo"
   },
   "peerDependencies": {
-    "yup": "^0.32.0"
+    "crypto-js": "4.x",
+    "yup": "0.32.x"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "crypto-js": "^4.1.1",
     "typescript": "^4.6.3"
-  },
-  "dependencies": {
-    "@types/crypto-js": "^4.0.2",
-    "crypto-js": "^4.1.1"
   },
   "gitHead": "1051bb41ec11df5fc90ea5eb411bc734897966c7"
 }
