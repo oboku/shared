@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["**/dist"],
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "no-undef": "off",
+    "no-unused-vars": "off"
+  }
+}
