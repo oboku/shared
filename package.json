@@ -9,6 +9,7 @@
     "build:prod": "NODE_ENV=production npx lerna run build",
     "tsc": "NODE_ENV=production npx lerna exec -- tsc",
     "lint": "prettier -c . && npx lerna exec -- eslint . --ext .ts,.tsx,.js,.jsx",
+    "format": "prettier -w . && npx lerna exec -- eslint . --ext .ts,.tsx,.js,.jsx",
     "build:dev": "NODE_ENV=development npx lerna run build",
     "publish:prod": "NODE_ENV=production npx lerna publish"
   },
