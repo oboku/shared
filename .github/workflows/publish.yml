@@ -13,5 +13,6 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - run: npx lerna bootstrap
       - run: yarn tsc
+      - run: yarn build:prod
       - run: npx lerna version minor --yes
-      - run: npm run publish:prod --yes
+      - run: npx lerna publish from-package --yes
