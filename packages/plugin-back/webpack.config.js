@@ -7,28 +7,24 @@ module.exports = {
     index: `./src/index.ts`
   },
   mode: IS_PROD ? `production` : `development`,
-  ...!IS_PROD && {
+  ...(!IS_PROD && {
     devtool: `source-map`
-  },
-  externals: [
-    `request`,
-    `node-fetch`,
-    `cheerio`,
-    `nano`,
-    /^@oboku\/.+$/
-  ],
-  ...IS_PROD && {
+  }),
+  externals: [`request`, `node-fetch`, `cheerio`, `nano`, /^@oboku\/.+$/],
+  ...(IS_PROD && {
     optimization: {
       minimize: true
     }
-  },
+  }),
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [{
-          loader: `ts-loader`
-        }]
+        use: [
+          {
+            loader: `ts-loader`
+          }
+        ]
       }
     ]
   },

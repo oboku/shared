@@ -1,46 +1,46 @@
 export type LinkDocType = {
-  _id: string;
-  _rev: string;
+  _id: string
+  _rev: string
   /**
    * unique type.
    * This is used to lookup plugin configurations
    */
-  type: string;
+  type: string
   /**
    * Is used as unique identifier for the datasource specifically.
    * This can be used to detect if an item already exist for a datasource
-   * during synchronization for example. 
+   * during synchronization for example.
    * A good example is for example to use the google file/folder id as resource id.
    * This way a quick lookup is possible to detect if the file/folder already exist.
    * Datasources can use this field the way they want as long as they use the unique identifier helper
    * function to generate/extract it.
    */
-  resourceId: string;
+  resourceId: string
   /**
    * Extra data field that can be used by any datasource to store
    * any form of data. Needs to be serialized as a string
    */
-  data: string | null;
-  book: string | null;
-  rx_model: 'link';
-  contentLength?: number | null;
+  data: string | null
+  book: string | null
+  rx_model: "link"
+  contentLength?: number | null
   modifiedAt: string | null
   createdAt: string
-};
+}
 
 export type DataSourceDocType = {
-  _id: string;
-  _rev: string;
-  type: string;
-  lastSyncedAt: number | null;
-  syncStatus: null | 'fetching'
-  lastSyncErrorCode?: string | null,
+  _id: string
+  _rev: string
+  type: string
+  lastSyncedAt: number | null
+  syncStatus: null | "fetching"
+  lastSyncErrorCode?: string | null
   credentials?: any
-  data: string;
-  rx_model: 'datasource';
+  data: string
+  rx_model: "datasource"
   modifiedAt: string | null
   createdAt: string
-};
+}
 
 export enum ReadingStateState {
   Finished = "FINISHED",
@@ -48,88 +48,115 @@ export enum ReadingStateState {
   Reading = "READING"
 }
 
-export type InsertableBookDocType = Required<Omit<BookDocType, '_id' | '_rev'>>;
+export type InsertableBookDocType = Required<Omit<BookDocType, "_id" | "_rev">>
 
 export type BookDocType = {
-  _id: string;
-  _rev: string;
-  createdAt: number;
-  creator: string | null;
-  date: number | null;
-  lang: string | null;
-  lastMetadataUpdatedAt: number | null;
-  metadataUpdateStatus: null | 'fetching'
-  lastMetadataUpdateError: null | string;
-  publisher: string | null;
-  readingStateCurrentBookmarkLocation: string | null;
-  readingStateCurrentBookmarkProgressPercent: number;
-  readingStateCurrentBookmarkProgressUpdatedAt: string | null;
-  readingStateCurrentState: ReadingStateState;
-  rights: string | null;
-  subject: string[] | null;
-  tags: string[];
-  links: string[];
-  collections: string[];
-  title: string | null;
-  rx_model: 'book';
-  modifiedAt: string | null,
+  _id: string
+  _rev: string
+  createdAt: number
+  creator: string | null
+  date: number | null
+  lang: string | null
+  lastMetadataUpdatedAt: number | null
+  metadataUpdateStatus: null | "fetching"
+  lastMetadataUpdateError: null | string
+  publisher: string | null
+  readingStateCurrentBookmarkLocation: string | null
+  readingStateCurrentBookmarkProgressPercent: number
+  readingStateCurrentBookmarkProgressUpdatedAt: string | null
+  readingStateCurrentState: ReadingStateState
+  rights: string | null
+  subject: string[] | null
+  tags: string[]
+  links: string[]
+  collections: string[]
+  title: string | null
+  rx_model: "book"
+  modifiedAt: string | null
   isAttachedToDataSource: boolean
-};
+}
 
 export type TagsDocType = {
-  _id: string;
-  _rev: string;
-  name: null | string;
-  isProtected: boolean;
-  isBlurEnabled?: boolean;
-  books: string[];
-  rx_model: 'tag';
+  _id: string
+  _rev: string
+  name: null | string
+  isProtected: boolean
+  isBlurEnabled?: boolean
+  books: string[]
+  rx_model: "tag"
   modifiedAt: string | null
   createdAt: string
-};
+}
 
 export type CollectionDocType = {
-  _id: string;
-  _rev: string;
-  name: string;
-  books: string[];
+  _id: string
+  _rev: string
+  name: string
+  books: string[]
   /**
    * Can be used as extra id for datasources in order to have
    * better accuracy when syncing. For example every drive collection
    * created will have `resourceId: drive-564asdQWjasd54` so that even
    * if user rename the folder a little bit we will not create a new collection
    */
-  resourceId?: string | null;
-  rx_model: 'obokucollection';
+  resourceId?: string | null
+  rx_model: "obokucollection"
   modifiedAt: string | null
   createdAt: string
   dataSourceId: undefined | null | string
-};
-
-export function isTag(document: TagsDocType | unknown): document is TagsDocType {
-  return (document as TagsDocType).rx_model === 'tag'
 }
 
-export function isBook(document: BookDocType | unknown): document is BookDocType {
-  return (document as BookDocType).rx_model === 'book'
+export function isTag(
+  document: TagsDocType | unknown
+): document is TagsDocType {
+  return (document as TagsDocType).rx_model === "tag"
 }
 
-export function isLink(document: LinkDocType | unknown): document is LinkDocType {
-  return (document as LinkDocType).rx_model === 'link'
+export function isBook(
+  document: BookDocType | unknown
+): document is BookDocType {
+  return (document as BookDocType).rx_model === "book"
 }
 
-export function isDataSource(document: DataSourceDocType | unknown): document is DataSourceDocType {
-  return (document as DataSourceDocType).rx_model === 'datasource'
+export function isLink(
+  document: LinkDocType | unknown
+): document is LinkDocType {
+  return (document as LinkDocType).rx_model === "link"
 }
 
-export function isCollection(document: CollectionDocType | unknown): document is CollectionDocType {
-  return (document as CollectionDocType).rx_model === 'obokucollection'
+export function isDataSource(
+  document: DataSourceDocType | unknown
+): document is DataSourceDocType {
+  return (document as DataSourceDocType).rx_model === "datasource"
 }
 
-type MangoOperator = '$lt' | '$lte' | '$eq' | '$ne' | '$gte' | '$gt' |
-  '$exists' | '$type' |
-  '$in' | '$nin' | '$size' | '$mod' | '$regex' |
-  '$or' | '$and' | '$nor' | '$not' | '$all' | '$allMatch' | '$elemMatch';
+export function isCollection(
+  document: CollectionDocType | unknown
+): document is CollectionDocType {
+  return (document as CollectionDocType).rx_model === "obokucollection"
+}
+
+type MangoOperator =
+  | "$lt"
+  | "$lte"
+  | "$eq"
+  | "$ne"
+  | "$gte"
+  | "$gt"
+  | "$exists"
+  | "$type"
+  | "$in"
+  | "$nin"
+  | "$size"
+  | "$mod"
+  | "$regex"
+  | "$or"
+  | "$and"
+  | "$nor"
+  | "$not"
+  | "$all"
+  | "$allMatch"
+  | "$elemMatch"
 
 type ConditionOperator<T> = {
   $nin?: any[]
@@ -139,13 +166,19 @@ type ConditionOperator<T> = {
 interface MangoQuery<RxDocType> {
   // JSON object describing criteria used to select documents.
   // selector?: MangoSelector;
-  selector?: {
-    [key in (keyof RxDocType)]?: RxDocType[key] | ConditionOperator<RxDocType[key]>
-  } | {
-    $or: {
-      [key in (keyof RxDocType)]?: RxDocType[key] | MangoQuerySelector<RxDocType[key]>
-    }[]
-  }
+  selector?:
+    | {
+        [key in keyof RxDocType]?:
+          | RxDocType[key]
+          | ConditionOperator<RxDocType[key]>
+      }
+    | {
+        $or: {
+          [key in keyof RxDocType]?:
+            | RxDocType[key]
+            | MangoQuerySelector<RxDocType[key]>
+        }[]
+      }
 
   // Maximum number of results returned. Default is 25.
   // limit?: number;
@@ -159,7 +192,7 @@ interface MangoQuery<RxDocType> {
   // JSON array specifying which fields of each object should be returned. If it is omitted,
   // the entire object is returned.
   // http://docs.couchdb.org/en/latest/api/database/find.html#filtering-fields
-  fields?: (keyof RxDocType)[];
+  fields?: (keyof RxDocType)[]
 
   // Instruct a query to use a specific index.
   // Specified either as "<design_document>" or ["<design_document>", "<index_name>"].
@@ -184,14 +217,25 @@ interface MangoQuery<RxDocType> {
   // execution_stats?: boolean;
 }
 
-type OneValue<T> = T extends Array<any> ? T[number] : T;
+type OneValue<T> = T extends Array<any> ? T[number] : T
 
-export type MangoQuerySelector<T> = T;
+export type MangoQuerySelector<T> = T
 
 export type SafeMangoQuery<RxDocType = any> = MangoQuery<RxDocType>
 
-export type DocType = BookDocType | TagsDocType | DataSourceDocType | LinkDocType | CollectionDocType
+export type DocType =
+  | BookDocType
+  | TagsDocType
+  | DataSourceDocType
+  | LinkDocType
+  | CollectionDocType
 
-export type ModelOf<Type extends DocType['rx_model']> = DocType extends (infer DT) ? DT extends DocType ? DT['rx_model'] extends Type ? DT : never : never : never
+export type ModelOf<Type extends DocType["rx_model"]> = DocType extends infer DT
+  ? DT extends DocType
+    ? DT["rx_model"] extends Type
+      ? DT
+      : never
+    : never
+  : never
 
-export { };
+export {}

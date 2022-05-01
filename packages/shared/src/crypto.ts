@@ -1,4 +1,4 @@
-import * as sha256 from 'crypto-js/sha256'
+import * as sha256 from "crypto-js/sha256"
 
 /**
  * The contentPassword is for user content protection. It is made to work
@@ -6,5 +6,5 @@ import * as sha256 from 'crypto-js/sha256'
  * fully secured solution
  */
 export const hashContentPassword = (password: string) => {
-  return sha256(password).toString();
+  return sha256(password).toString()
 }
