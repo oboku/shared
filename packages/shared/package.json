@@ -7,14 +7,10 @@
     "/dist"
   ],
   "scripts": {
-    "lint": "echo",
-    "start": "NODE_ENV=development webpack build --watch",
-    "build": "NODE_ENV=development webpack build && npm run build-types",
+    "start": "webpack build --watch",
+    "build": "webpack build && npm run build-types",
     "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
-    "build:prod": "NODE_ENV=production webpack build",
-    "build:dev": "npm run build & npm run build-types",
     "prepublishOnly": "npm run build & npm run build-types",
-    "test": "echo"
   },
   "peerDependencies": {
     "crypto-js": "4.x",
