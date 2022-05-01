@@ -12,6 +12,7 @@ jobs:
           node-version: "16"
           registry-url: "https://registry.npmjs.org"
       - run: npx lerna bootstrap
+      - run: yarn build:dev
       - run: yarn tsc
       - run: yarn build:prod
       - run: npx lerna version minor --yes
