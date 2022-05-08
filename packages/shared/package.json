@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack build --watch",
     "build": "webpack build && npm run build-types",
-    "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
+    "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly"
   },
   "peerDependencies": {
     "crypto-js": "4.x",
