@@ -13,8 +13,6 @@
     "start-types": "tsc -w --preserveWatchOutput --declaration --noEmit false --emitDeclarationOnly",
     "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
     "build": "npm run build-src && npm run build-types",
-    "build:prod": "NODE_ENV=development webpack build",
-    "prepublishOnly": "npm run build:prod & npm run build-types",
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "test": "jest"
   },

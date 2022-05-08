@@ -10,7 +10,6 @@
     "start": "webpack build --watch",
     "build": "webpack build && npm run build-types",
     "build-types": "tsc --declaration --noEmit false --emitDeclarationOnly",
-    "prepublishOnly": "npm run build & npm run build-types"
   },
   "peerDependencies": {
     "crypto-js": "4.x",
