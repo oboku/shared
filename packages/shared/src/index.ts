@@ -1,11 +1,16 @@
-export const READER_SUPPORTED_MIME_TYPES = [
-  "application/x-cbz" as const,
-  "application/epub+zip" as const,
-  "text/xml" as const,
-  "application/x-cbr" as const,
-  "application/zip" as const
-]
-export const READER_SUPPORTED_EXTENSIONS = [".epub", ".txt", ".cbz", ".cbr"]
+export const READER_ACCEPTED_EXTENSIONS = {
+  "text/plain": [".txt"],
+  "application/x-cbz": [".cbz"],
+  "application/zip": [".epub"],
+  "application/epub+zip": [".epub"],
+  "application/x-cbr": [".cbr"]
+}
+export const READER_SUPPORTED_MIME_TYPES = Object.keys(
+  READER_ACCEPTED_EXTENSIONS
+)
+export const READER_SUPPORTED_EXTENSIONS = Object.values(
+  READER_ACCEPTED_EXTENSIONS
+).reduce((prev, next) => [...prev, ...next], [])
 
 export const design = {
   palette: {
