@@ -17,20 +17,27 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "@material-ui/core": "4.12.x",
-    "@material-ui/icons": "4.11.x",
-    "@material-ui/lab": "^4.0.0-alpha.60",
-    "@oboku/shared": "^0.0.13",
-    "react": "18.x",
-    "react-dom": "18.x"
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.x",
+    "@mui/lab": "^5.0.0-alpha.80",
+    "@mui/material": "5.6.x",
+    "@oboku/shared": "^0.5.0",
+    "react": "17.x",
+    "react-dom": "17.x"
   },
   "devDependencies": {
-    "@material-ui/core": "4.12.x",
-    "@material-ui/icons": "4.11.x",
-    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.x",
+    "@mui/lab": "^5.0.0-alpha.80",
+    "@mui/material": "5.6.x",
     "@oboku/shared": "^0.5.0",
-    "react": "18.x",
-    "react-dom": "18.x"
+    "react": "17.x",
+    "react-dom": "17.x"
   },
-  "gitHead": "1051bb41ec11df5fc90ea5eb411bc734897966c7"
+  "gitHead": "1051bb41ec11df5fc90ea5eb411bc734897966c7",
+  "dependencies": {
+    "@emotion/styled": "^11.8.1"
+  }
 }

@@ -4,7 +4,7 @@ import {
   dataSourceHelpers
 } from "@oboku/shared"
 import { ComponentProps, FC, FunctionComponent } from "react"
-import { Button } from "@material-ui/core"
+import { Button } from "@mui/material"
 import * as yup from "yup"
 
 export { ImgIcon } from "./ImgIcon"
