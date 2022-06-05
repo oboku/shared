@@ -3,7 +3,7 @@ import {
   directives,
   LinkDocType,
   dataSourceHelpers,
-  InsertableBookDocType,
+  InsertAbleBookDocType,
   SafeMangoQuery,
   DocType,
   ModelOf
@@ -35,7 +35,7 @@ type Helpers = {
   getDataSourceData: <Data>() => Promise<Partial<Data>>
   isBookCoverExist: (bookId: string) => Promise<boolean>
   createBook: (
-    data?: Partial<InsertableBookDocType>
+    data?: Partial<InsertAbleBookDocType>
   ) => Promise<createNano.DocumentInsertResponse>
   findOne: <M extends DocType["rx_model"], D extends ModelOf<M>>(
     model: M,
