@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const BASE_DETECTION_REGEX = `\\[oboku\\~[^\\]]*\\]`
 
 /**

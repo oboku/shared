@@ -1,6 +1,17 @@
-export type LinkDocType = {
+type CouchDBMeta = {
   _id: string
   _rev: string
+}
+
+type RxDbMeta = {
+  rxdbMeta: {
+    lwt: number
+  }
+}
+
+type CommonBase = CouchDBMeta & RxDbMeta
+
+export type LinkDocType = CommonBase & {
   /**
    * unique type.
    * This is used to lookup plugin configurations
@@ -28,9 +39,7 @@ export type LinkDocType = {
   createdAt: string
 }
 
-export type DataSourceDocType = {
-  _id: string
-  _rev: string
+export type DataSourceDocType = CommonBase & {
   type: string
   lastSyncedAt: number | null
   syncStatus: null | "fetching"
@@ -48,11 +57,9 @@ export enum ReadingStateState {
   Reading = "READING"
 }
 
-export type InsertableBookDocType = Required<Omit<BookDocType, "_id" | "_rev">>
+export type InsertAbleBookDocType = Required<Omit<BookDocType, "_id" | "_rev">>
 
-export type BookDocType = {
-  _id: string
-  _rev: string
+export type BookDocType = CommonBase & {
   createdAt: number
   creator: string | null
   date: number | null
@@ -76,9 +83,7 @@ export type BookDocType = {
   isAttachedToDataSource: boolean
 }
 
-export type TagsDocType = {
-  _id: string
-  _rev: string
+export type TagsDocType = CommonBase & {
   name: null | string
   isProtected: boolean
   isBlurEnabled?: boolean
@@ -88,9 +93,7 @@ export type TagsDocType = {
   createdAt: string
 }
 
-export type CollectionDocType = {
-  _id: string
-  _rev: string
+export type CollectionDocType = CommonBase & {
   name: string
   books: string[]
   /**
