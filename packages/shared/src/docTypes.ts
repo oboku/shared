@@ -49,6 +49,7 @@ export type DataSourceDocType = CommonBase & {
   rx_model: "datasource"
   modifiedAt: string | null
   createdAt: string
+  isProtected?: boolean
 }
 
 export enum ReadingStateState {
