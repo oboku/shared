@@ -45,7 +45,7 @@ export type UseDownloadHook = (options: { apiUri: string }) => (
 
 export type UseRemoveBook = () => (link: LinkDocType) => Promise<
   | {
-      data: {}
+      data: Record<string, unknown>
     }
   | {
       isError: true
@@ -75,7 +75,7 @@ export type ObokuPlugin = {
   synchronizable?: boolean
   type: string
   sensitive?: boolean
-  Icon?: FunctionComponent<{}>
+  Icon?: FunctionComponent<Record<string, never>>
   UploadComponent?: FunctionComponent<{
     onClose: (bookToAdd?: { resourceId: string; tags?: string[] }) => void
     TagsSelector: FC<{

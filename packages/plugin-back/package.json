@@ -16,8 +16,10 @@
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "test": "jest"
   },
+  "dependencies": {
+    "@oboku/shared": "*"
+  },
   "peerDependencies": {
-    "@oboku/shared": "*",
     "@types/request": "^2.48.8",
     "cheerio": "^1.0.0-rc.10",
     "nano": "^10.0.0",
