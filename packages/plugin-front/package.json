@@ -1,6 +1,6 @@
 {
   "name": "@oboku/plugin-front",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "dist/index.js",
   "license": "MIT",
   "files": [
@@ -28,6 +28,6 @@
   "gitHead": "1051bb41ec11df5fc90ea5eb411bc734897966c7",
   "dependencies": {
     "@emotion/styled": "^11.8.1",
-    "@oboku/shared": "*"
+    "@oboku/shared": "^0.9.0"
   }
 }

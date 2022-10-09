@@ -1,6 +1,6 @@
 {
   "name": "@oboku/plugin-back",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "dist/index.js",
   "license": "MIT",
   "files": [
@@ -17,7 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@oboku/shared": "*"
+    "@oboku/shared": "^0.9.0"
   },
   "peerDependencies": {
     "@types/request": "^2.48.8",
